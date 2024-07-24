@@ -6,8 +6,8 @@ def get_values(*names):
 import math
 
 metadata = {
-    'protocolName': 'Microdillution',
-    'author': 'Gabriel Cabot, phD <gabriel.cabot@ssib.es>',
+    'protocolName': 'Microdillution v.1.0',
+    'author': 'Gabriel Cabot <gabriel.cabot@ssib.es>',
     'source': 'ARBPIG / MLS (IdISBa)',
     'apiLevel': '2.2'
     }
@@ -22,6 +22,7 @@ def run(protocol_context):
     solution_media_volume=897
     solution_ATB_volume=103
     transfer_volume=100
+    blank_volume=200
     num_dilutions=10
 
     if not left_pipette and not right_pipette:
@@ -98,7 +99,7 @@ def run(protocol_context):
         else:
             pipette = pip_l
     pipette.pick_up_tip()
-    for dest in dest_plate1.rows()[0][:col_num]:
+    for dest in dest_plate1.rows()[0][:col_num-1]:
         pipette.transfer(
             media_volume,
             media,
@@ -106,12 +107,12 @@ def run(protocol_context):
             new_tip='never'
         )
     pipette.transfer(
-        media_volume,
+        blank_volume,
         media,
         dest_plate1.rows()[0][:11],
         new_tip='never'
     )
-    for dest in dest_plate2.rows()[0][:col_num]:
+    for dest in dest_plate2.rows()[0][:col_num-1]:
         pipette.transfer(
             media_volume,
             media,
@@ -119,12 +120,12 @@ def run(protocol_context):
             new_tip='never'
         )
     pipette.transfer(
-        media_volume,
+        blank_volume,
         media,
         dest_plate2.rows()[0][:11],
         new_tip='never'
     )
-    for dest in dest_plate4.rows()[0][:col_num]:
+    for dest in dest_plate4.rows()[0][:col_num-1]:
         pipette.transfer(
             media_volume,
             media,
@@ -132,12 +133,12 @@ def run(protocol_context):
             new_tip='never'
         )
     pipette.transfer(
-        media_volume,
+        blank_volume,
         media,
         dest_plate4.rows()[0][:11],
         new_tip='never'
     )
-    for dest in dest_plate5.rows()[0][:col_num]:
+    for dest in dest_plate5.rows()[0][:col_num-1]:
         pipette.transfer(
             media_volume,
             media,
@@ -145,12 +146,12 @@ def run(protocol_context):
             new_tip='never'
         )
     pipette.transfer(
-        media_volume,
+        blank_volume,
         media,
         dest_plate5.rows()[0][:11],
         new_tip='never'
     )
-    for dest in dest_plate7.rows()[0][:col_num]:
+    for dest in dest_plate7.rows()[0][:col_num-1]:
         pipette.transfer(
             media_volume,
             media,
@@ -158,12 +159,12 @@ def run(protocol_context):
             new_tip='never'
         )
     pipette.transfer(
-        media_volume,
+        blank_volume,
         media,
         dest_plate7.rows()[0][:11],
         new_tip='never'
     )
-    for dest in dest_plate8.rows()[0][:col_num]:
+    for dest in dest_plate8.rows()[0][:col_num-1]:
         pipette.transfer(
             media_volume,
             media,
@@ -171,12 +172,11 @@ def run(protocol_context):
             new_tip='never'
         )
     pipette.transfer(
-        media_volume,
+        blank_volume,
         media,
         dest_plate8.rows()[0][:11],
         new_tip='never'
     )
-    pipette.blow_out(media.top())
     pipette.drop_tip()
 
     # prepare ATB solution
