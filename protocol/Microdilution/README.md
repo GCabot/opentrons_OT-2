@@ -13,11 +13,13 @@ You will need an ATB-Stock at the A1 well (A2 and A3 are prepared to be used in 
 > [!NOTE]
 > You can modify the range of the AST, modifying the concentration of the ATB-Stock you use at A1-well of Aluminium Temperature Block.
 
-| ATB STOCK CONCENTRATION | min. RANGE ATB TESTED | MAX. RANGE ATB TESTED |
+| ATB STOCK CONCENTRATION | MAX. RANGE ATB TESTED (well 1) | min. RANGE ATB TESTED (well 11) |
 | ----------------------- | --------------------- | --------------------- |
-| 10 mg/mL | 0.12 mg/L | 256 mg/L |
-| 20 mg/mL | 0.25 mg/L | 512 mg/L |
-| 40 mg/mL | 0.5 mg/L | 1024 mg/L |
+| 10 mg/mL | 256 mg/L | 0.12 mg/L |
+| 20 mg/mL | 512 mg/L | 0.25 mg/L |
+| 40 mg/mL | 1024 mg/L | 0.5 mg/L |
+
+![96-well plate final layout](IMGs/96-well_plate_filled.png)
 
 > [!WARNING]
 > Use these material **UNDER YOUR OWN RESPONSABILITY**.
