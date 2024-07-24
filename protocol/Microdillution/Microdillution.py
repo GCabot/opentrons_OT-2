@@ -12,6 +12,7 @@ metadata = {
     'apiLevel': '2.2'
     }
 
+    # PROTOCOL DEFINITION:
 
 def run(protocol_context):
     [number_of_samples, left_pipette, right_pipette, media_volume,
@@ -19,11 +20,11 @@ def run(protocol_context):
         "number_of_samples", "left_pipette", "right_pipette",
         "media_volume", "DNA_volume"
      )
-    solution_media_volume=897
-    solution_ATB_volume=103
-    transfer_volume=100
-    blank_volume=200
-    num_dilutions=10
+    solution_ATB_volume=103                                                # Volume (uL) to add to prepare 1mL of ATB-stock in a screw-cap tube to add to plates
+    solution_media_volume=(1000-solution_ATB_volume)                       # Volume (uL) to add to prepare 1mL of ATB-stock in a screw-cap tube to add to plates
+    transfer_volume=100                                                    # Volume (uL) to use in the serial dilution step.
+    blank_volume=200                                                       # Volume (uL) to add to prepare 1mL of ATB-stock in a screw-cap tube to add to plates
+    num_dilutions=10                                                       # Number of serial dilutions to make (to broad or narrow the range of the plate)
 
     if not left_pipette and not right_pipette:
         raise Exception('You have to select at least 1 pipette.')
@@ -32,9 +33,9 @@ def run(protocol_context):
     pipette_r = None
 
     for pip, mount, slots in zip(
-            [left_pipette, right_pipette],  #Which pipettes are mounted (Described in JSON)
-            ['left', 'right'],              #Where pipettes are mounted
-            [['10'], ['11']]):              #Where tippracks for each pipette are located
+            [left_pipette, right_pipette],                                 # Which pipettes are mounted (Described in JSON)
+            ['left', 'right'],                                             # Where pipettes are mounted
+            [['10'], ['11']]):                                             # Where tippracks for each pipette are located
 
         if pip:
             range = pip.split('_')[0][1:]
@@ -48,7 +49,8 @@ def run(protocol_context):
                 pipette_r = protocol_context.load_instrument(
                     pip, mount, tip_racks=tipracks)
 
-    # labware setup - set names, types, positions, and descriptions of all labware
+    # LABWARE SETUP - SET NAMES, TYPES, DESK POSITION, and DESCRIPTIONS FOR ALL LABWARE
+    
     dest_plate1 = protocol_context.load_labware(
         'opentrons_96_wellplate_200ul_pcr_full_skirt', '1', 'Output plate 1')
     dest_plate2 = protocol_context.load_labware(
@@ -67,15 +69,15 @@ def run(protocol_context):
     temp_block = temp_mod.load_labware(
                     'opentrons_24_aluminumblock_generic_2ml_screwcap')
 
-    # Wells
+    # TEMPERATURE BLOCK DEFINITION (WELLS)
+    
     ATB_1 = temp_block['A1']
     ATB_2 = temp_block['B1']
     ATB_3 = temp_block['C1']
     trash = protocol_context.fixed_trash
     destemp_block = [temp_block['A2'],temp_block['A3'],temp_block['B2']]
 
-    # determine which pipette has the smaller volume range
-    if pipette_l and pipette_r:
+    if pipette_l and pipette_r:                                # determine which pipette has the smaller volume range
         if left_pipette == right_pipette:
             pip_s = pipette_l
             pip_l = pipette_r
@@ -87,12 +89,14 @@ def run(protocol_context):
     else:
         pipette = pipette_l if pipette_l else pipette_r
 
-    # reagent setup
+    # REAGENTS SETUP
+    
     media = med_res.wells()[0]
     col_num = math.ceil(number_of_samples/8)
-#    temp_mod.set_temperature(celsius=14)
+    temp_mod.set_temperature(celsius=14)
 
-    # distribute media
+    # DISTRIBUTE MEDIA
+    
     if pipette_l and pipette_r:
         if media_volume <= pip_s.max_volume:
             pipette = pip_s
@@ -179,12 +183,7 @@ def run(protocol_context):
     )
     pipette.drop_tip()
 
-    # prepare ATB solution
-#    if pipette_l and pipette_r:
-#        if solution_media_volume <= pip_s.max_volume:
-#            pipette = pip_s
-#        else:
-#            pipette = pip_l
+    # PREPARE ATB SOLUTION
 
     pipette = pip_l
     pipette.pick_up_tip()
@@ -198,7 +197,6 @@ def run(protocol_context):
     pipette.drop_tip()
 
     pipette = pip_l
-#    pipette.pick_up_tip()
     for dest in [temp_block['A2'],temp_block['B2'],temp_block['C2'],temp_block['A3'],temp_block['B3'],temp_block['C3']]:
         pipette.transfer(
             solution_ATB_volume,
@@ -206,9 +204,9 @@ def run(protocol_context):
             dest,
             mix_before=(3,100)
         )
-#    pipette.drop_tip()
 
-    # Load ATB on plates
+    # DISTRIBUTE ATB SOLUTION TO PLATES
+    
     pipette = pip_l
     for dest in [dest_plate1['A1'],dest_plate1['B1'],dest_plate1['C1'],dest_plate1['D1'],dest_plate1['E1'],dest_plate1['F1'],dest_plate1['G1'],dest_plate1['H1']]:
         pipette.transfer(
@@ -258,9 +256,10 @@ def run(protocol_context):
             mix_before=(3, 100)
             )
 
-    # Mix plates
-    pipette = pip_s
-    for dest in [dest_plate1]:
+    # PERFORM SERIAL DILUTION:
+
+        pipette = pip_s
+    for dest in [dest_plate1, dest_plate2, dest_plate4, dest_plate5, dest_plate7, dest_plate8]:
         row = dest.rows()[0]
         pipette.transfer(
             100,
