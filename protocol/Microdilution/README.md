@@ -1,4 +1,4 @@
-Folder containing all Microdillution AST protocol variants and versions.
+Folder containing all Microdilution AST protocol variants and versions.
 
 > [!WARNING]
 > Use these material **UNDER YOUR OWN RESPONSABILITY**.
