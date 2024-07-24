@@ -6,7 +6,7 @@ def get_values(*names):
 import math
 
 metadata = {
-    'protocolName': 'Microdillution v.1.0',
+    'protocolName': 'Microdilution v.1.0',
     'author': 'Gabriel Cabot <gabriel.cabot@ssib.es>',
     'source': 'ARBPIG / MLS (IdISBa)',
     'apiLevel': '2.2'
