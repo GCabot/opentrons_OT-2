@@ -11,16 +11,7 @@ Please feel free to download, modify and or use any of these, but <b>DO IT AT YO
 
 **__Custom Labware Repository__**
 
-[X]  1-well(s) reservoire (195mL)
-
-[]  8-well(s) reservoire (22mL) - WIP
-
-[]  12-well(s) reservoire (14mL) - WIP
-
-[]  96-well(s) reservoire (2mL) - WIP
-
-
-
+- Reservoires (1-well, 8-well, 12-well, 96-well) for reagents.
 
 > [!WARNING]
 > Use these material under **YOUR OWN responsability**. **I'll not be responsible** for any damage caused at your OT-2 robot, labware, facility or person derived by the use of any of these material.
