@@ -23,4 +23,6 @@ Please feel free to download, modify and or use any of these, but <b>DO IT AT YO
 
 
 > [!WARNING]
-> Use these material under **YOUR OWN** responsability. **I'll not be responsible** for any damage caused at your OT-2 robot, labware, facility or person derived by the use of any of these material.
+> Use these material under **YOUR OWN responsability**. **I'll not be responsible** for any damage caused at your OT-2 robot, labware, facility or person derived by the use of any of these material.
+
+ARPBIG_MLabS'24
