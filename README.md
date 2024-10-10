@@ -1,6 +1,6 @@
 # MLabS OT-2 protocols and designs.
 
-These are most of the material I'm working on to use an OT-2 Opentrons Unit at my lab. Mostly, protocols I'm writing to try to automate some of the laboratory processes in the Microbiology Lab (www.arpbigidisba.com) at Balearic Institute of Sanitary Research (IdISBa - www.idisba.com) but also some custom designed labware and ideas to use with an OT-2 unit of Opentrons Robot.
+These are most of the material I'm working on to use an OT-2 Opentrons Unit at my lab. Mostly, protocols I'm writing to try to automate some of the laboratory processes in the Microbiology Lab (www.arpbigidisba.com) at Balearic Institute of Sanitary Research (IdISBa - www.idisba.com) but also some custom designed labware and ideas to use with an OT-2 unit of Opentrons Robot (@opentrons).
 
 Please feel free to download, modify and or use any of these, but **DO IT AT YOUR OWN RESPONSABILITY**, protocols should have been tested properly, but there will be also Work In Progress protocols to kind of gather some help, feedback or advice.
 
