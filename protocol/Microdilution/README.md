@@ -25,3 +25,11 @@ You will need an ATB-Stock at the A1 well (A2 and A3 are prepared to be used in 
 > Use these material **UNDER YOUR OWN RESPONSABILITY**.
 
 ARPBIG_MLabS'24
+
+> [!IMPORTANT]
+> Ideas for future upgrades (feel free to suggest upgrades or code modifications to do any of them):
+> - [ ] Upgrading mixing function to avoid lifting pipette between mixes.
+> - [ ] Initial selection of plate numbers by user.
+
+
+@GCabot24
