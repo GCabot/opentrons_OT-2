@@ -22,5 +22,11 @@ This is the repository for Custom Labware, most of which will be designed and 3D
 
 > [!WARNING]
 > Use these material **UNDER YOUR OWN RESPONSABILITY**.
+> 3D Printed PLA well-reservoires are not watertight
 
-ARPBIG_MLabS'24
+> [!IMPORTANT]
+> Task list:
+> - [ ] Try new infills or new material to make a watertight reservoires.
+> - [ ] Testing 8/12/96-well(s) reservoires.
+
+@ARPBIG_MLabS'24
