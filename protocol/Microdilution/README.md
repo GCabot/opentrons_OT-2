@@ -1,12 +1,21 @@
 # Microdilution (v.1.0)
 
-This is the protocol to use the Microdilution.py OT-2 Opentrons protocol to prepare 6 plates for ATB Susceptibility Testing.
+This is the protocol to use the Microdilution.py OT-2 Opentrons protocol to prepare up to 6 plates for ATB Susceptibility Testing.
 
 To prepare the deck for the protocol you could follow the next Deck Layout:
 
 ![OT-2 Opentrons Deck Layout - From Opentrons Protocol Designer](IMGs/Microdilution_v1.png)
 
-You will need an ATB-Stock at the A1 well (A2 and A3 are prepared to be used in case of variations, but by now it only uses well A1 for ATB-stock). Also you will need 6x**STERILE** 2mL screwcap tubes in positions A2, A3, B2, B3, C2 and C3 to prepare the ATB/Media Solution to prepare the ranges of ATB on your plates.
+You will need an ATB-Stock at the A1 well (A2 and A3 are prepared to be used in case of variations [see table below], but by now it only uses well A1 for ATB-stock). Also you will need 6x**STERILE** 2mL screwcap tubes in positions A2, A3, B2, B3, C2 and C3 to prepare the ATB/Media Solution to prepare the ranges of ATB on your plates.
+
+| N. Plates | OUTPUT_Plates positions | TEMP_BLOCK POSITIONS |
+| ----------------------- | --------------------- | --------------------- |
+| 2 Plates | 96-well plates on 1 & 2 | STOCK on A1, empty tubes on A2 & A3 |
+| 4 Plates* | 96-well plates on 1, 2, 4 & 5  | STOCK on A1 & B1, empty tubes on A2, A3, B2 & B3 |
+| 6 Plates* | 96-well plates on 1, 2, 4, 5, 7 & 8 | STOCK on A1, empty tubes on A2, A3, B2, B3, C2 & C3 |
+
+> [!IMPORTANT]
+> *The CURRENT Protocol is only coded to prepare 2x 96-well plates.
 
 ![Aluminium Temperature Block Layout - From Opentrons Protocol Designer](IMGs/24-well_Aluminium_Block_Microdilution_v1_LAYOUT.png)
 
